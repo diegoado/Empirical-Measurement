@@ -19,6 +19,7 @@
 *.zip
 *.tar.gz
 *.rar
+!libs/*
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -54,7 +55,7 @@ hs_err_pid*
 
 # IntelliJ
 /out/
-EmpiricalMesurement.iml
+*.iml
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
