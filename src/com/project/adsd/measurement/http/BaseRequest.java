@@ -46,5 +46,5 @@ public abstract class BaseRequest<T> {
         }
     }
 
-    public abstract void submitRequest(int number);
+    public abstract void submitRequest(int interval);
 }

@@ -15,7 +15,7 @@ public class BasicRequest extends BaseRequest<JSONObject> {
         responseHandler = new JSONResponseHandler();
     }
 
-    public void submitRequest(int number) {
+    public void submitRequest(int interval) {
         long startTime = System.nanoTime();
         JSONObject jsonResponse = sendRequest();
         long endTime   = System.nanoTime();
@@ -24,7 +24,7 @@ public class BasicRequest extends BaseRequest<JSONObject> {
             Double requestTime = (endTime - startTime) / 1e6;
 
             // Storage Request Metric
-            sample.add(new Line("JSON", number, "Simple", requestTime));
+            sample.add(new Line("JSON", interval, "Simple", requestTime));
         } else {
             System.out.println("Error Request, discarding measurement metric!");
         }

@@ -12,7 +12,7 @@ import java.util.concurrent.*;
 public class Main {
 
     private static final String USER_HOME = System.getProperty("user.home");
-    
+
     private static Sample sample = new Sample();
     private static Output output = new Output(USER_HOME + "/Downloads/sample.csv");
 
@@ -28,6 +28,8 @@ public class Main {
         for (BaseRequest request : requests) {
             execute(request, 400, cores);
             execute(request, 40 , cores);
+
+            request.terminate();
         }
         System.out.println("Experiment shutdown saving sample");
 
@@ -44,7 +46,8 @@ public class Main {
         };
         int initialDelay = interval / 10;
         System.out.println(String.format(
-                "Running the experiment %s using %d cores", request.getClass().getSimpleName(), cores));
+                "Running the experiment %s using %d cores and making a request every %d milliseconds",
+                request.getClass().getSimpleName(), cores, interval));
 
         ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(cores);
         threadPool.scheduleWithFixedDelay(runnableTask, initialDelay, interval, TimeUnit.MILLISECONDS);
@@ -55,9 +58,7 @@ public class Main {
 
             threadPool.shutdown();
             while (!threadPool.isTerminated());
-
-            request.terminate();
-        } catch (IOException | InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

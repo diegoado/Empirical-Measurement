@@ -19,7 +19,7 @@ public class ImageRequest extends BaseRequest<File> {
     }
 
     @Override
-    public void submitRequest(int number) {
+    public void submitRequest(int interval) {
         long startTime = System.nanoTime();
         File fileResponse = sendRequest();
         long endTime   = System.nanoTime();
@@ -29,7 +29,7 @@ public class ImageRequest extends BaseRequest<File> {
             fileResponse.delete();
 
             // Storage Request Metric
-            sample.add(new Line("Image", number, "Simple", requestTime));
+            sample.add(new Line("Image", interval, "Simple", requestTime));
         } else {
             System.out.println("Error Request, discarding measurement metric!");
         }

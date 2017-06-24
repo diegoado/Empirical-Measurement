@@ -17,7 +17,7 @@ public class CalculatedRequest extends BaseRequest<JSONObject> {
     }
 
     @Override
-    public void submitRequest(int number) {
+    public void submitRequest(int interval) {
         long startTime = System.nanoTime();
         JSONObject jsonResponse = sendRequest();
         long endTime   = System.nanoTime();
@@ -26,7 +26,7 @@ public class CalculatedRequest extends BaseRequest<JSONObject> {
             Double requestTime = (endTime - startTime) / 1e6;
 
             // Storage Request Metric
-            sample.add(new Line("JSON", number, "Calculated", requestTime));
+            sample.add(new Line("JSON", interval, "Calculated", requestTime));
         } else {
             System.out.println("Error Request, discarding measurement metric!");
         }
