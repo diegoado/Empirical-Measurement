@@ -5,22 +5,22 @@ import java.util.List;
 
 public class Line {
 
-    private int requestNumber;
+    private int requestInterval;
     private String responseType;
 
     private String operation;
     private Double responseTime;
 
-    public Line(String requestType, int requestNumber, String operation, Double responseTime) {
+    public Line(String requestType, int requestInterval, String operation, Double responseTime) {
         this.responseType = requestType;
-        this.requestNumber = requestNumber;
+        this.requestInterval = requestInterval;
         this.operation = operation;
         this.responseTime = responseTime;
     }
 
     @Override
     public String toString() {
-        return String.format("%s;%s;%d;%.4f", responseType, operation, requestNumber, responseTime);
+        return String.format("%s;%s;%d;%.4f", responseType, operation, requestInterval, responseTime);
     }
 
     public List<String> asList() {

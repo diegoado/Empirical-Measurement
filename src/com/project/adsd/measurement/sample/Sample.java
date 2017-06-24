@@ -12,10 +12,6 @@ public class Sample {
         data.add(line);
     }
 
-    public int nextLine() {
-        return data.size() + 1;
-    }
-
     public List<Line> getData() {
         return data;
     }

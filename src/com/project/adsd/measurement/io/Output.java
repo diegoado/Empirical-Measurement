@@ -30,7 +30,7 @@ public class Output {
 
         CSVUtils.writeLine(
                 writer,
-                Arrays.asList("response.type", "operation", "request.number", "response.time"),
+                Arrays.asList("response.type", "operation", "request.interval", "response.time"),
                 ';');
 
         for (Line line : lines)
