@@ -4,11 +4,8 @@ import com.project.adsd.measurement.sample.Line;
 import com.project.adsd.measurement.sample.Sample;
 import com.project.adsd.measurement.utils.FileResponseHandler;
 import org.apache.http.client.methods.HttpGet;
-import org.json.simple.JSONObject;
 
 import java.io.File;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 
 public class ImageRequest extends BaseRequest<File> {
 

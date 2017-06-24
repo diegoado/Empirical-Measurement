@@ -3,16 +3,8 @@ package com.project.adsd.measurement.http;
 import com.project.adsd.measurement.sample.Line;
 import com.project.adsd.measurement.sample.Sample;
 import com.project.adsd.measurement.utils.JSONResponseHandler;
-import org.apache.http.Header;
-import org.apache.http.HttpHeaders;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicHeader;
 import org.json.simple.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CalculatedRequest extends BaseRequest<JSONObject> {
 

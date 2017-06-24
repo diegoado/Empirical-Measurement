@@ -11,7 +11,6 @@ import java.util.List;
 public class Output {
 
     private File file;
-    public static final String LINE_BREAK = System.getProperty("line.separator");
 
     public Output(String path) {
         file = new File(path);

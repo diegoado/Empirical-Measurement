@@ -11,12 +11,14 @@ import java.util.concurrent.*;
 
 public class Main {
 
+    private static final String USER_HOME = System.getProperty("user.home");
+    
     private static Sample sample = new Sample();
-    private static Output output = new Output("/home/diego/Downloads/sample.csv");
-
+    private static Output output = new Output(USER_HOME + "/Downloads/sample.csv");
 
     public static void main(String[] args) throws IOException {
         String accessToken = new LoginRequest().getAccessToken();
+        int cores          = Runtime.getRuntime().availableProcessors();
 
         BaseRequest[] requests = {
                 new BasicRequest(accessToken, sample),
@@ -24,7 +26,8 @@ public class Main {
                 new ImageRequest(accessToken, sample)
         };
         for (BaseRequest request : requests) {
-            execute(request, 400, Runtime.getRuntime().availableProcessors());
+            execute(request, 400, cores);
+            execute(request, 40 , cores);
         }
         System.out.println("Experiment shutdown saving sample");
 
