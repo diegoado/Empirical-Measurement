@@ -21,9 +21,10 @@ public class Main {
         int cores          = Runtime.getRuntime().availableProcessors();
 
         BaseRequest[] requests = {
-                new BasicRequest(accessToken, sample),
-                new CalculatedRequest(accessToken, sample),
-                new ImageRequest(accessToken, sample)
+                new SimpleJSONRequest(accessToken, sample),
+                new CalculatedJSONRequest(accessToken, sample),
+                new SimpleImageRequest(accessToken, sample),
+                new CalculatedImageRequest(accessToken, sample)
         };
         for (BaseRequest request : requests) {
             execute(request, 400, cores);

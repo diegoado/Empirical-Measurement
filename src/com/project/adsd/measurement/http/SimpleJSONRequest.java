@@ -6,9 +6,9 @@ import com.project.adsd.measurement.utils.JSONResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.json.simple.JSONObject;
 
-public class BasicRequest extends BaseRequest<JSONObject> {
+public class SimpleJSONRequest extends BaseRequest<JSONObject> {
 
-    public BasicRequest(String accessToken, Sample sample) {
+    public SimpleJSONRequest(String accessToken, Sample sample) {
         super(accessToken, sample);
 
         httpMethod = new HttpGet(BASE_URL + "/api/users/");

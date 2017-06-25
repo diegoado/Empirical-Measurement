@@ -7,9 +7,9 @@ import org.apache.http.client.methods.HttpGet;
 
 import java.io.File;
 
-public class ImageRequest extends BaseRequest<File> {
+public class SimpleImageRequest extends BaseRequest<File> {
 
-    public ImageRequest(String accessToken, Sample sample) {
+    public SimpleImageRequest(String accessToken, Sample sample) {
         super(accessToken, sample);
 
         httpMethod = new HttpGet(BASE_URL + "/api/images/58e3e4f02f968500043eb294/download");

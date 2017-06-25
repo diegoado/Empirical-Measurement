@@ -1,18 +1,19 @@
 package com.project.adsd.measurement.http;
 
+
 import com.project.adsd.measurement.sample.Line;
 import com.project.adsd.measurement.sample.Sample;
 import com.project.adsd.measurement.utils.JSONResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.json.simple.JSONObject;
 
-public class CalculatedRequest extends BaseRequest<JSONObject> {
+public class CalculatedImageRequest extends BaseRequest<JSONObject> {
 
-    public CalculatedRequest(String accessToken, Sample sample) {
+    public CalculatedImageRequest(String accessToken, Sample sample) {
         super(accessToken, sample);
 
         httpMethod = new HttpGet(
-                BASE_URL + "/api/search/points?latitude=-7.212374&longitude=-35.9082698");
+                BASE_URL + "/api/search/full/points?latitude=-7.212374&longitude=-35.9082698");
         responseHandler = new JSONResponseHandler();
     }
 
@@ -26,11 +27,9 @@ public class CalculatedRequest extends BaseRequest<JSONObject> {
             Double requestTime = (endTime - startTime) / 1e6;
 
             // Storage Request Metric
-            sample.add(new Line("JSON", interval, "Calculated", requestTime));
+            sample.add(new Line("Image", interval, "Calculated", requestTime));
         } else {
             System.out.println("Error Request, discarding measurement metric!");
         }
-
     }
 }
-
